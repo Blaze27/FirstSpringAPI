@@ -24,8 +24,9 @@ public class ProductController {
     }
 
 //    localhost:0000/products
+    @GetMapping("/")
     public List<Product> getAllProducts() {
-        return new ArrayList<>();
+        return productService.getAllProducts();
     }
 
 //    Create, Delete, Update, Replace Products
