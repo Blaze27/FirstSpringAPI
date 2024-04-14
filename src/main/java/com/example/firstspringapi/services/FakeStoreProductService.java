@@ -22,8 +22,8 @@ public class FakeStoreProductService implements ProductService {
     }
 
     private Product convertProctuctDtoToProduct(FakeStoreProductDto dto) {
-        Product product = new Product();
         if (dto != null) {
+            Product product = new Product();
             product.setId(dto.getId());
             product.setTitle(dto.getTitle());
             product.setPrice(dto.getPrice());
@@ -33,8 +33,9 @@ public class FakeStoreProductService implements ProductService {
 
             category.setDescription(dto.getCategory());
             product.setCategory(category);
+            return product;
         }
-        return product;
+        return null;
     }
     @Override
     public Product getProductById(Long id) {
