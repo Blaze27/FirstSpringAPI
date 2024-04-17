@@ -1,6 +1,5 @@
 package com.example.firstspringapi.services;
 
-import com.example.firstspringapi.dtos.FakeStoreProductDto;
 import com.example.firstspringapi.exceptions.ProductNotFoundException;
 import com.example.firstspringapi.models.Product;
 

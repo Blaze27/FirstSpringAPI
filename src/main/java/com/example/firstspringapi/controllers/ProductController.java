@@ -1,6 +1,7 @@
 package com.example.firstspringapi.controllers;
 
 import com.example.firstspringapi.exceptions.ProductNotFoundException;
+import com.example.firstspringapi.models.Category;
 import com.example.firstspringapi.models.Product;
 import com.example.firstspringapi.repositories.ProductRepository;
 import com.example.firstspringapi.services.ProductService;
@@ -22,7 +23,6 @@ public class ProductController {
 
     @GetMapping("/{id}") // localhost:0000/products/{1} -> Here {1} represents ID
     public ResponseEntity<Product> getProductById(@PathVariable("id") Long id) throws ProductNotFoundException {
-//        return productService.getProductById(id);
         Product product = productService.getProductById(id);
         ResponseEntity<Product> responseEntity;
 

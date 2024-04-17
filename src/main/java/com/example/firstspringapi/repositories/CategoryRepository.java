@@ -4,6 +4,9 @@ import com.example.firstspringapi.models.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Optional;
+
 
 /*
 JpaRepository<T1, T2> diamond brackets takes two params:
@@ -12,5 +15,9 @@ JpaRepository<T1, T2> diamond brackets takes two params:
  */
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long> {
+    @Override
+    Optional<Category> findById(Long aLong);
 
+    @Override
+    List<Category> findAll();
 }
