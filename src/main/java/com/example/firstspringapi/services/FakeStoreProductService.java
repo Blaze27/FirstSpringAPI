@@ -1,6 +1,7 @@
 package com.example.firstspringapi.services;
 
 import com.example.firstspringapi.dtos.FakeStoreProductDto;
+import com.example.firstspringapi.exceptions.ProductNotFoundException;
 import com.example.firstspringapi.models.Category;
 import com.example.firstspringapi.models.Product;
 import org.springframework.http.HttpMethod;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.lang.reflect.Type;
 
-@Service
+@Service("fakeStoreProductBean")
 public class FakeStoreProductService implements ProductService {
     private RestTemplate restTemplate;
 
@@ -24,7 +25,6 @@ public class FakeStoreProductService implements ProductService {
     private Product convertProctuctDtoToProduct(FakeStoreProductDto dto) {
         if (dto != null) {
             Product product = new Product();
-            product.setId(dto.getId());
             product.setTitle(dto.getTitle());
             product.setPrice(dto.getPrice());
             product.setDescription(dto.getDescription());
@@ -67,7 +67,6 @@ public class FakeStoreProductService implements ProductService {
     @Override
     public Product replaceProduct(Long id, Product product) {
         FakeStoreProductDto fakeStoreProductDto = new FakeStoreProductDto();
-        fakeStoreProductDto.setId(product.getId());
         fakeStoreProductDto.setTitle(product.getTitle());
         fakeStoreProductDto.setImage(product.getImage());
         fakeStoreProductDto.setPrice(product.getPrice());
@@ -80,5 +79,20 @@ public class FakeStoreProductService implements ProductService {
                 HttpMethod.PUT, requestCallback, responseExtractor);
 
         return convertProctuctDtoToProduct(response);
+    }
+
+    @Override
+    public Product updateProduct(Long id, Product product) {
+        return null;
+    }
+
+    @Override
+    public Product createProduct(Product product) {
+        return null;
+    }
+
+    @Override
+    public void deleteProduct(Long id) {
+
     }
 }
