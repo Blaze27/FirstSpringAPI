@@ -78,8 +78,7 @@ public class FakeStoreProductService implements ProductService {
         FakeStoreProductDto response = restTemplate.execute("https://fakestoreapi.com/products/" + id,
                 HttpMethod.PUT, requestCallback, responseExtractor);
 
-        return convertProctuctDtoToProduct(response);
-    }
+        return convertProctuctDtoToProduct(response);}
 
     @Override
     public Product updateProduct(Long id, Product product) {
