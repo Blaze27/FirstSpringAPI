@@ -1,18 +1,20 @@
 package com.example.firstspringapi.models;
 
-
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
 
 @Getter
 @Setter
 @Entity
-public class Category extends BaseModel{
+public class FakeStoreProduct {
+    @Id
+    private Long id;
+    private String title;
+    private Double price;
+    private String category;
     private String description;
+    private String image;
 }
